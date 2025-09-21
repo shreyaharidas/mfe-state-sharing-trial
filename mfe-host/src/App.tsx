@@ -5,9 +5,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
+        <h2>MFE HOST</h2>
         <a
           className="App-link"
           href="https://reactjs.org"
