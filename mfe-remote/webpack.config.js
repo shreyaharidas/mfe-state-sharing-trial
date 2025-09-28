@@ -1,12 +1,13 @@
 // mfe-host/webpack.config.js
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const ModuleFederationPlugin = require("webpack").container.ModuleFederationPlugin;
 
 module.exports = {
   mode: "development",
   // make paths resolve relative to mfe-host folder
   context: path.resolve(__dirname), // <-- important
-  entry: "./src/index.tsx", // now resolves to mfe-host/src/index.js
+  entry: "./src/components/Button.tsx", // now resolves to mfe-host/src/index.js
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "bundle.js",
@@ -15,8 +16,15 @@ module.exports = {
   devServer: { port: 9001 },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./public/index.html", // now resolves to mfe-host/public/index.html
+      template: "./public/index.html",
     }),
+    new ModuleFederationPlugin({
+      name: "mfe_remote",
+      filename: "remoteEntry.js",
+      exposes: {
+        "./RemoteButton": "./src/components/Button"
+      }
+    })
   ],
   resolve: {
     extensions: [".tsx", ".ts", ".js", ".jsx", ".json"],

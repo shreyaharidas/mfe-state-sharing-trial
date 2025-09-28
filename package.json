@@ -13,7 +13,7 @@
     "webpack": "^5.101.3"
   },
   "scripts": {
-    "start:host": "webpack serve --config mfe-host/webpack.config.js",
+    "start:host": "webpack serve --config mfe-host/webpack.config.js --open",
     "start:remote": "webpack serve --config mfe-remote/webpack.config.js --open",
     "build:host": "webpack --config mfe-host/webpack.config.js",
     "build:remote": "webpack --config mfe-remote/webpack.config.js",
