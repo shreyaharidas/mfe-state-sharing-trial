@@ -1,4 +1,3 @@
-// mfe-host/webpack.config.js
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack").container.ModuleFederationPlugin;
@@ -11,7 +10,6 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "bundle.js",
-    // ...other output settings
   },
   devServer: { port: 9001 },
   plugins: [

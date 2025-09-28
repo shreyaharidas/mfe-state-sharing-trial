@@ -12,12 +12,11 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "bundle.js",
-    // ...other output settings
   },
   devServer: { port: 9000 },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./public/index.html", // now resolves to mfe-host/public/index.html
+      template: "./public/index.html", 
     }),
     new ModuleFederationPlugin({
       remotes: {
